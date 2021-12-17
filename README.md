@@ -35,7 +35,7 @@ EVENTS
   date
   name
   location
-  hostID
+  creatorID
 
 INVITATIONS
   event_id
@@ -44,12 +44,12 @@ INVITATIONS
 Model Associations:
 
 USER
-  has_many :hosted_events, foreign_key: :host_id, class_name: "event"
+  has_many :created_events, foreign_key: :creator_id, class_name: "event"
   has_many :invitations, foreign_key: :attendee_id
   has_many :attending_events, through: :invitations
 
 EVENT
-  belongs_to :host, class_name: "User"
+  belongs_to :creator, class_name: "User"
   has_many :invitations
   has_many :guests, through :invitations, source: :attendee
 
