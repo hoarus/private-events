@@ -1,0 +1,55 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+/* Show Page */
+
+/* Event details */
+
+.events-section {
+  display: grid;
+}
+
+.events-section > * {
+  grid-column: 1 / -1;
+  width: 100%;
+}
+
+.events-section-title {
+  text-align: center;
+}
+
+.events-wrapper {
+  border: solid 2px lightgray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1100px;
+  justify-self: center;
+  padding: 20px;
+}
+
+.event-container {
+  border: solid 2px lightgray;
+  background-color: aquamarine;
+  flex: 1 1 auto;
+  max-width: 25%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.event-container > * {
+  margin: 0px;
+}
+
+.event-title {
+  align-self: center;
+  margin-bottom: 10px;
+}
+
+.attribute-descriptor {
+  font-weight: 700;
+}
