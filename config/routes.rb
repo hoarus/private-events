@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
-  resources :users
-  devise_for :users
   root 'events#index'
-  get 'events/index'
+  devise_for :users
   resources :events
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
