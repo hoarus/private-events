@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<h1> <%= @event.title %> </h1>
+<h3>Event details </h3>
+<p class="event-location">
+  <span class="attribute-descriptor">Location: </span>
+  <%= @event.location %>
+</p>
+<p class="event-date">
+  <span class="attribute-descriptor">Date: </span>
+  <%= @event.date %>
+</p>
+
+<button class="nav-button">
+  <%= link_to 'Back', events_url %>
+</button>
