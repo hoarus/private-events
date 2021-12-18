@@ -56,3 +56,15 @@ EVENT
 INVITATION
   belongs_to :attendee, class_name: "User"
   belongs_to :event
+
+
+
+GUIDE TO SETTING UP:
+ - Configure a root page
+ - Set up devise
+ - Migrate Devise DB
+ - New migration for any custom User fields
+ - Generate Devise Models
+  - Generate Devise Views
+  - Customise User Controller & Application Controller to permit customer fields (e.g. Username)
+  - Generate scaffold for other post

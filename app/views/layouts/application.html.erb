@@ -16,10 +16,16 @@
       <p class="alert"><%= alert %></p>
 
       <header class="page-header">
+        <%= link_to "Private Events", root_path, class: "logo" %>
         <nav class="page-navbar">
-          Navbar coming soon
-            <%= link_to 'New Event', new_event_path, class:"new-event" %>
-            <%= link_to 'Create Account', new_user_path, class:"new-user" %>  
+          <% if user_signed_in? %>
+              <%= link_to 'Create Event', new_event_path, class: "nav-link create-event"  %>
+              <%= link_to current_user.username, edit_user_registration_path, class: "nav-link"  %>
+              <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "nav-link" %>
+          <% else %>
+            <%= link_to 'Sign In', new_user_session_path, class: "nav-link"  %>
+            <%= link_to 'Sign Up', new_user_registration_path, class: "nav-link"  %>
+          <% end %>
         </nav>
       </header>
       <div class="body-wrapper">
@@ -28,3 +34,4 @@
     </div>
   </body>
 </html>
+
