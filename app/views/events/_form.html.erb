@@ -13,10 +13,13 @@
 
   <%= form_with model: @event do |form| %>
     <%= form.label :title, "Title:" %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, placeholder: "Event Title" %>
     <br><br>
-    <%= form.label :body, "Body:"%>
-    <%= form.text_area :body, placeholder: "Body goes here"  %>
+    <%= form.label :location, "Location:"%>
+    <%= form.text_area :location, placeholder: "Event Location"  %>
+    <br><br>
+    <%= form.label :date, "Date:"%>
+    <%= form.date_field :date  %>
     <br><br>
     <%= form.submit "Create" %>
   <% end %>
