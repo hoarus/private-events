@@ -1,3 +1,22 @@
+<div class="events-section">
+  <h2 class="events-section-title">Events You've Created</h2>
+  <div class="events-wrapper">
+    <% @user.created_events.all.each do |event| %>
+      <div class="event-container">
+        <h3 class="event-title"><%= event.title %></h3>
+        <p class="event-location">
+          <span class="attribute-descriptor">Location: </span>
+          <%= event.location %>
+        </p>
+        <p class="event-date">
+          <span class="attribute-descriptor">Date: </span>
+          <%= event.date %>
+        </p>
+      </div>
+    <% end %>
+  </div>
+</div>
+
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -41,3 +60,4 @@
 <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>
+

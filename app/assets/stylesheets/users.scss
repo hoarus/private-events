@@ -14,6 +14,7 @@
 .events-section > * {
   grid-column: 1 / -1;
   width: 100%;
+  margin-bottom: 20px;
 }
 
 .events-section-title {
@@ -28,6 +29,7 @@
   max-width: 1100px;
   justify-self: center;
   padding: 20px;
+  gap: 20px;
 }
 
 .event-container {
@@ -48,8 +50,23 @@
 .event-title {
   align-self: center;
   margin-bottom: 10px;
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+  font-weight: 700;
+
 }
+
+.event-title:hover {
+  color: lightseagreen
+}
+
 
 .attribute-descriptor {
   font-weight: 700;
+}
+
+#edit_user {
+  display: grid;
+  gap: 10px;
 }

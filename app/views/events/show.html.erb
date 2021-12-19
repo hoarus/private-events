@@ -8,7 +8,11 @@
 </p>
 <p class="event-date">
   <span class="attribute-descriptor">Date: </span>
-  <%= @event.date %>
+  <%= @event.date.to_formatted_s(:long_ordinal) %>
+</p>
+<p class="event-creator">
+  <span class="attribute-descriptor">Host: </span>
+  <%= @event.creator[:username] %>
 </p>
 
 <button class="nav-button">
