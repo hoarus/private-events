@@ -15,7 +15,6 @@ class InvitationsController < ApplicationController
   # POST /invitations or /invitations.json
   def create
     @invitation = Invitation.create(attendee: current_user, event_id: session[:current_event_id])
-
   end
 
   private

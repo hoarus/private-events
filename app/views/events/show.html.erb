@@ -27,9 +27,17 @@
   <%= session[:current_event_id]%>
 </p>
 
+<p class="event-creator">
+  <span class="attribute-descriptor">Params: </span>
+  <%= params[:id] %>
+</p>
+
 <button class="nav-button">
-  <%= link_to 'Attend Event', {:controller => 'invitations', :action => 'create'}, {:method => :post} %>
+  <%= link_to 'Attend Event', attend_path(@post), {:method => :put} %>
 </button>
+
+
+
 
 <button class="nav-button">
   <%= link_to 'Back', events_url %>
