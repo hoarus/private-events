@@ -1,24 +1,31 @@
 <p id="notice"><%= notice %></p>
 
 
-  <div class="user-section">
-    <h2 class="user-section-title">Account Details</h2>
-    <p class="username">
-      <span class="attribute-descriptor">Username: </span>
-      <%= @user.username %>
-    </p>
-    <p class="email">
-      <span class="attribute-descriptor">Email: </span>
-      <%= @user.email %>
-    </p>
-    <%= link_to 'Edit', edit_user_path(@user) %> |
-    <%= link_to 'Back', users_path %>
-  </div>
+
 
   <div class="events-section">
     <h2 class="events-section-title">Events You've Created</h2>
     <div class="events-wrapper">
       <% @user.created_events.all.each do |event| %>
+        <div class="event-container">
+          <h3 class="event-title"><%= event.title %></h3>
+          <p class="event-location">
+            <span class="attribute-descriptor">Location: </span>
+            <%= event.location %>
+          </p>
+          <p class="event-date">
+            <span class="attribute-descriptor">Date: </span>
+            <%= event.date %>
+          </p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+    <div class="events-section">
+    <h2 class="events-section-title">Events You're Attending</h2>
+    <div class="events-wrapper">
+      <% @user.attending_events.all.each do |event| %>
         <div class="event-container">
           <h3 class="event-title"><%= event.title %></h3>
           <p class="event-location">

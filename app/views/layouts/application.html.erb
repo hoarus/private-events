@@ -20,6 +20,7 @@
         <nav class="page-navbar">
           <% if user_signed_in? %>
               <%= link_to 'Create Event', new_event_path, class: "nav-link create-event"  %>
+              <%= link_to "Upcoming Events", upcoming_events_path(current_user[:id]), class: "nav-link"  %>
               <%= link_to current_user.username, edit_user_registration_path, class: "nav-link"  %>
               <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "nav-link" %>
           <% else %>
