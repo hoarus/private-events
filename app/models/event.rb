@@ -8,6 +8,8 @@ class Event < ApplicationRecord
   validates :date, presence: true
   validates :creator_id, presence:true
 
+  scope :pasted, -> { where('date: <?', Date.today) }
+
   def past
     self.date < Date.today
   end
