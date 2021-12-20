@@ -15,6 +15,22 @@
   <%= @event.creator[:username] %>
 </p>
 
+<p class="event-attendees">
+  <span class="attribute-descriptor">Attendees: </span>
+  <% @event.attendees.all.each do |attendee| %>
+    <p> <%= attendee.username %> </p>
+  <% end %>
+</p>
+
+<p class="event-creator">
+  <span class="attribute-descriptor">Current Event: </span>
+  <%= session[:current_event_id]%>
+</p>
+
+<button class="nav-button">
+  <%= link_to 'Attend Event', {:controller => 'invitations', :action => 'create'}, {:method => :post} %>
+</button>
+
 <button class="nav-button">
   <%= link_to 'Back', events_url %>
 </button>
