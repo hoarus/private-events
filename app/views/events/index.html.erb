@@ -1,22 +1,50 @@
 <div class="events-section">
-  <h2 class="events-section-title">All Events</h2>
+  <h2 class="events-section-title">Upcoming Events</h2>
   <div class="events-wrapper">
-    <% @events.all.each do |event| %>
-      <div class="event-container">
-        <%= link_to event.title, event_path(event), class:"event-title" %>
-        <p class="event-location">
-          <span class="attribute-descriptor">Location: </span>
-          <%= event.location %>
-        </p>
-        <p class="event-date">
-          <span class="attribute-descriptor">Date: </span>
-          <%= event.date %>
-        </p>
-        <p class="event-creator">
-          <span class="attribute-descriptor">Host: </span>
-          <%= event.creator[:username] %>
-        </p>
-      </div>
+    <% @events.order(:date).all.each do |event| %>
+      <% if event.past%>
+        <div class="event-container">
+          <%= link_to event.title, event_path(event), class:"event-title" %>
+          <p class="event-location">
+            <span class="attribute-descriptor">Location: </span>
+            <%= event.location %>
+          </p>
+          <p class="event-date">
+            <span class="attribute-descriptor">Date: </span>
+            <%= event.date.to_formatted_s(:rfc822) %>
+          </p>
+          <p class="event-creator">
+            <span class="attribute-descriptor">Host: </span>
+            <%= event.creator[:username] %>
+          </p>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+
+<div class="events-section">
+  <h2 class="events-section-title">Past Events</h2>
+  <div class="events-wrapper">
+    <% @events.order(:date).all.each do |event| %>
+      <% if event.past %>
+        <div class="event-container">
+          <%= link_to event.title, event_path(event), class:"event-title" %>
+          <p class="event-location">
+            <span class="attribute-descriptor">Location: </span>
+            <%= event.location %>
+          </p>
+          <p class="event-date">
+            <span class="attribute-descriptor">Date: </span>
+            <%= event.date.to_formatted_s(:rfc822) %>
+          </p>
+          <p class="event-creator">
+            <span class="attribute-descriptor">Host: </span>
+            <%= event.creator[:username] %>
+          </p>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>

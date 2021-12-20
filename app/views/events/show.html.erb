@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <h1> <%= @event.title %> </h1>
 <h3>Event details </h3>
 <p class="event-location">
@@ -15,28 +13,19 @@
   <%= @event.creator[:username] %>
 </p>
 
-<p class="event-attendees">
-  <span class="attribute-descriptor">Attendees: </span>
-  <% @event.attendees.all.each do |attendee| %>
-    <p> <%= attendee.username %> </p>
-  <% end %>
-</p>
+<% if user_signed_in? %>
+  <p class="event-attendees">
+    <span class="attribute-descriptor">Attendees: </span>
+    <% @event.attendees.all.each do |attendee| %>
+      <p> <%= attendee.username %> </p>
+    <% end %>
+  </p>
 
-<p class="event-creator">
-  <span class="attribute-descriptor">Current Event: </span>
-  <%= session[:current_event_id]%>
-</p>
+  <button class="nav-button">
+    <%= link_to 'Attend Event', attend_path(session[:current_event_id]), {:method => :put} %>
+  </button>
 
-<p class="event-creator">
-  <span class="attribute-descriptor">Params: </span>
-  <%= params[:id] %>
-</p>
-
-<button class="nav-button">
-  <%= link_to 'Attend Event', attend_path(@post), {:method => :put} %>
-</button>
-
-
+<% end%>
 
 
 <button class="nav-button">

@@ -11,9 +11,8 @@
   </head>
 
   <body>
+
     <div class="main-wrapper">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
 
       <header class="page-header">
         <%= link_to "Private Events", root_path, class: "logo" %>
@@ -30,6 +29,9 @@
         </nav>
       </header>
       <div class="body-wrapper">
+        <% unless notice.nil? %>
+          <p id="notice"><%= notice %></p>
+        <% end %>
         <%= yield %>
       </div>
     </div>
