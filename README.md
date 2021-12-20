@@ -51,7 +51,7 @@ USER
 EVENT
   belongs_to :creator, class_name: "User"
   has_many :invitations
-  has_many :guests, through :invitations, source: :attendee
+  has_many :attendees, through :invitations, source: :attendee
 
 INVITATION
   belongs_to :attendee, class_name: "User"
@@ -68,3 +68,11 @@ GUIDE TO SETTING UP:
   - Generate Devise Views
   - Customise User Controller & Application Controller to permit customer fields (e.g. Username)
   - Generate scaffold for other post
+
+
+TAXI to book:
+  Cessnock Civic Indoor Sports (Mount View Road)
+
+  840am 31 Dec to Allandale Winery, Lovedale Road
+
+
