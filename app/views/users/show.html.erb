@@ -1,10 +1,9 @@
-
   <div class="events-section">
     <h2 class="events-section-title">Events You've Created</h2>
     <div class="events-wrapper">
       <% @user.created_events.order(:date).all.each do |event| %>
         <div class="event-container">
-          <h3 class="event-title"><%= event.title %></h3>
+          <%= link_to event.title, event_path(event), class:"event-title" %>
           <p class="event-location">
             <span class="attribute-descriptor">Location: </span>
             <%= event.location %>
@@ -24,7 +23,7 @@
       <% @user.attending_events.order(:date).all.each do |event| %>
         <% if event.future %>
           <div class="event-container">
-            <h3 class="event-title"><%= event.title %></h3>
+            <%= link_to event.title, event_path(event), class:"event-title" %>
             <p class="event-location">
               <span class="attribute-descriptor">Location: </span>
               <%= event.location %>
@@ -45,7 +44,7 @@
       <% @user.attending_events.order(:date).all.each do |event| %>
         <% if event.past %>
           <div class="event-container">
-            <h3 class="event-title"><%= event.title %></h3>
+            <%= link_to event.title, event_path(event), class:"event-title" %>
             <p class="event-location">
               <span class="attribute-descriptor">Location: </span>
               <%= event.location %>

@@ -1,8 +1,8 @@
 <div class="events-section">
   <h2 class="events-section-title">Upcoming Events</h2>
   <div class="events-wrapper">
-    <% @events.order(:date).all.each do |event| %>
-      <% if event.past%>
+    <% @events.all.each do |event| %>
+      <% if event.future%>
         <div class="event-container">
           <%= link_to event.title, event_path(event), class:"event-title" %>
           <p class="event-location">
